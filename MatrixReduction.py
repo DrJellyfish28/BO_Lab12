@@ -31,3 +31,5 @@ def Matrix_reduction(M : np.ndarray):
 # Test
 MT = np.array([[5,10,15],[5,20,30],[5,50,5]])
 print(Matrix_reduction(MT))
+MT = np.array([[float('inf'),5,4,6,6],[8,float('inf'),5,3,4],[4,3,float('inf'),3,1],[8,2,5,float('inf'),6],[2,2,7,0,float('inf')]])
+print(Matrix_reduction(MT))
