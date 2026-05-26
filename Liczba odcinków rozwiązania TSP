@@ -1,0 +1,30 @@
+def block_subtours(matrix, partial_tour, next_edge):
+    new_matrix = copy.deepcopy(matrix)
+    
+    p = next_edge[0]  # potencjalny początek łańcucha (u)
+    k = next_edge[1]  # potencjalny koniec łańcucha (v)
+
+    # 1. Cofamy się, by znaleźć faktyczny początek łańcucha (p)
+    zmiana = True
+    while zmiana:
+        zmiana = False
+        for u, v in partial_tour:
+            if v == p:
+                p = u
+                zmiana = True
+                break
+
+    # 2. Idziemy w przód, by znaleźć faktyczny koniec łańcucha (k)
+    zmiana = True
+    while zmiana:
+        zmiana = False
+        for u, v in partial_tour:
+            if u == k:
+                k = v
+                zmiana = True
+                break
+
+    # 3. Zabraniamy powrotu w macierzy (uniknięcie podcyklu)
+    new_matrix[k][p] = INF
+    
+    return new_matrix
