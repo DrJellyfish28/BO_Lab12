@@ -137,3 +137,9 @@ def solve_tsp_little(cost_matrix):
         print(f"     Dodano Podproblem {right_node.id} (Bez krawędzi {best_edge}, LB={right_node.lb})")
 
     return v_star, best_tour
+from zamykanie import solve_tsp_little, example_cost_matrix
+
+
+if __name__ == "__main__":
+    cost_matrix = example_cost_matrix()
+    solve_tsp_little(cost_matrix)
